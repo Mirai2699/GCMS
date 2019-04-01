@@ -40,6 +40,7 @@
                                 while($row = mysqli_fetch_assoc($view_query))
                                 {
                                     $ID = $row["famInf_ID"];
+                                    $stud_ID = $row["stud_ID"];
                                     $stud_no = $row["stud_number"];
                                     $famInf_type = $row["famInf_type"];
                                     $famInf_lastname = $row["famInf_lastname"];
@@ -65,7 +66,7 @@
                                 <td width=""><?php echo $famInf_occupation; ?></td>
                                 <td style='width:12%'>
                                     <center>
-                                        <a data-toggle="modal" href="#edit_profile_details" class="btn btn-warning">
+                                        <a data-toggle="modal" href="#edit_profile_details<?php echo $ID?>" class="btn btn-warning">
                                                 <i class="fa fa-edit" data-size="16" title="Edit"></i>
                                                 Edit
                                         </a>     

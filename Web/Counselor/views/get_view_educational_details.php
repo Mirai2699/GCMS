@@ -40,7 +40,7 @@
                                                                                 <th>School Name</th>
                                                                                 <th>School Address</th>
                                                                                 <th>School Type</th>
-                                                                                <th>Year Graduated</th>
+                                                                                <th style="text-align:center">Year Graduated/<br>Last Year of Attendance</th>
                                                                                 <th style="text-align: center">Action</th>
                                                                             </tr>
                                                                             </thead>
@@ -72,9 +72,9 @@
                                                                                     <td width=""><?php echo $school_yeargrad; ?></td>
                                                                                     <td style='width:12%'>
                                                                                         <center>
-                                                                                            <a href="view_profile_details" class="btn btn-warning">
-                                                                                                    <i class="fa fa-edit" data-size="16" title="Edit"></i>
-                                                                                                    Edit
+                                                                                            <a href="#view_profile_details<?php echo $ID?>" data-toggle="modal" class="btn btn-info">
+                                                                                                    <i class="fa fa-eye" data-size="16" title="View Details"></i>
+                                                                                                    View Details
                                                                                             </a>     
                                                                                         </center>
                                                                                     </td>
@@ -106,7 +106,7 @@
                                                                                 <th>School Name</th>
                                                                                 <th>School Address</th>
                                                                                 <th>School Type</th>
-                                                                                <th>Year Graduated</th>
+                                                                                <th style="text-align:center">Year Graduated/<br>Last Year of Attendance</th>
                                                                                 <th style="text-align: center">Action</th>
                                                                             </tr>
                                                                             </thead>
@@ -138,9 +138,9 @@
                                                                                     <td width=""><?php echo $school_yeargrad; ?></td>
                                                                                     <td style='width:12%'>
                                                                                         <center>
-                                                                                            <a href="view_profile_details" class="btn btn-warning">
-                                                                                                    <i class="fa fa-edit" data-size="16" title="Edit"></i>
-                                                                                                    Edit
+                                                                                            <a href="#view_profile_details<?php echo $ID?>" data-toggle="modal" class="btn btn-info">
+                                                                                                    <i class="fa fa-eye" data-size="16" title="View Details"></i>
+                                                                                                    View Details
                                                                                             </a>     
                                                                                         </center>
                                                                                     </td>
@@ -171,7 +171,7 @@
                                                                                 <th>School Name</th>
                                                                                 <th>School Address</th>
                                                                                 <th>School Type</th>
-                                                                                <th>Year Graduated</th>                                                                                <th style="text-align: center">Action</th>
+                                                                                <th style="text-align:center">Year Graduated/<br>Last Year of Attendance</th>                                                                                <th style="text-align: center">Action</th>
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
@@ -202,9 +202,9 @@
                                                                                     <td width=""><?php echo $school_yeargrad; ?></td>
                                                                                     <td style='width:12%'>
                                                                                         <center>
-                                                                                            <a href="view_profile_details" class="btn btn-warning">
-                                                                                                    <i class="fa fa-edit" data-size="16" title="Edit"></i>
-                                                                                                    Edit
+                                                                                            <a href="#view_profile_details<?php echo $ID?>" data-toggle="modal" class="btn btn-info">
+                                                                                                    <i class="fa fa-eye" data-size="16" title="View Details"></i>
+                                                                                                    View Details
                                                                                             </a>     
                                                                                         </center>
                                                                                     </td>
@@ -223,4 +223,5 @@
                                                     <?php include("get_view_modal_add_education_record.php");?>
                                                     <?php include("get_view_modal_add_education_record_done.php");?>
                                                     <?php include("get_view_modal_add_awards_record.php");?>
+                                                    <?php include("get_view_modal_modify_educational_record.php");?>
                                                     <!--END MODALS --> 

@@ -45,15 +45,17 @@
                                     <div class="col-md-12">
                                         <h3>Add Individual Counsel Record</h3>
                                         <div class="panel" style="padding: 1px; background-color: #6e6e6e"></div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <label>Visitation Code</label>
-                                            <select id="myDropdown" class="form-control" name="CI_visit_ID" style="width: 48%">
+                                            <select id="myDropdown" class="form-control" name="CI_visit_ID" style="width: 100%">
                                                   <option value="" selected disabled>-- Select Code --</option>
                                                    <?php  
+                                                       $datenow = date('Y-m-d');
                                                        $sqlemp = "SELECT * FROM `t_stud_visitation` AS VIS
                                                                         INNER JOIN `t_stud_profile` AS STUD
                                                                         ON VIS.vs_stud_no = STUD.stud_number
-                                                                        WHERE vs_visit_type = 1 ORDER BY vs_code DESC";
+                                                                        WHERE vs_visit_type = 1 and vs_date_visit = '$datenow'
+                                                                        ORDER BY vs_code DESC";
                                                        $results = mysqli_query($connection, $sqlemp) or die("Bad Query: $sql");
                                                            while($row = mysqli_fetch_assoc($results))
                                                            {
@@ -75,7 +77,7 @@
                                                    <?php } ?>
                                             </select>
                                         </div>
-
+                                        
                                         <div id="SPACER" class="row" style="margin: 10px"></div>
                                         <div class="col-md-6">
                                             <label>Counseling Type</label>
@@ -179,7 +181,7 @@
                                                                                                              and STUD.stud_course = CORS.course_ID
                                                                                                              and APP.app_ID = INDIV.CI_appoint_type
                                                                                                              and CT.ct_ID = INDIV.CI_couns_type 
-                                                                                                        ORDER BY INDIV.CI_ID DESC");
+                                                                                                        ORDER BY INDIV.CI_couns_date DESC");
                                                                 while($row = mysqli_fetch_assoc($view_query))
                                                                 {
                                                                     $ID = $row["CI_ID"];

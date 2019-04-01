@@ -6,6 +6,7 @@
      while($row = mysqli_fetch_assoc($view_query))
      {
          $ID = $row["famInf_ID"];
+         $stud_ID = $row["stud_ID"];
          $stud_no = $row["stud_number"];
          $famInf_type = $row["famInf_type"];
          $famInf_lastname = $row["famInf_lastname"];
@@ -21,7 +22,7 @@
 
          $compname = $famInf_firstname.' '.$famInf_lastname;
  ?>      
-<div aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="edit_profile_details" class="modal fade">
+<div aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="edit_profile_details<?php echo $ID?>" class="modal fade">
      <div class="modal-dialog" style="width: 1000px; ">
          <div class="modal-content" >
              <div class="modal-header" style="background-color: #00acc1">
@@ -34,7 +35,8 @@
                    <div class="adv-table">                  
                                    <form action="../functionalities/manage_family_record.php" method="POST">
                                        <div class="form-content">
-                                            <input type="hidden" name="stud_ID" value="<?php echo $ID;?>">
+                                            <input type="hidden" name="famInf_ID" value="<?php echo $ID;?>">
+                                            <input type="hidden" name="stud_ID" value="<?php echo $stud_ID;?>">
                                             <input type="hidden" name="stud_no" value="<?php echo $stud_no;?>">
                                            <div class="row group">
                                              <div class="col-md-12" style="margin-left: 10px">                                                        
@@ -118,6 +120,9 @@
                                              <div style="float:right;">
                                                <button type="submit" class="btn btn-primary" name="edit_fam_rec">
                                                 <i class="fa fa-external-link"></i>&nbsp;Submit</button>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                                <i class="fa fa-times"></i>&nbsp;Cancel</button>
                                              </div>
                                            </div>
                                        </div>

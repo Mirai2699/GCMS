@@ -14,12 +14,12 @@
                                <td>                          
                                    <form action="../functionalities/manage_education_record.php" method="POST">
                                        <div class="form-content">
-                                            <input type="hidden" name="stud_ID" value="<?php echo $ID;?>">
+                                            <input type="hidden" name="stud_ID" value="<?php echo $stud_ID;?>">
                                             <input type="hidden" name="stud_no" value="<?php echo $stud_no;?>">
                                             <div class="row" style="margin: 4px">
                                                <div class="col-md-12" style="margin-top: 20px">
                                                        <button type="button" id="btnAdd" class="btn btn-success">      
-                                                       <i class="fa fa-plus"></i>s
+                                                       <i class="fa fa-plus"></i>
                                                        Add Achievemeent Details                                                         
                                                        </button>
                                                </div>
@@ -28,12 +28,12 @@
                                                <div class="col-md-12" style="margin-left: 10px">        
                                                    <div id="SPACER" class="row" style="margin: 10px"></div>
                                                    <div class="panel" style="padding: 1px; background-color: navy; width: 98%"></div>
-                                                   <label style="font-size: 18px; margin: 10px">Enter Schooling Details</label>
+                                                   <label style="font-size: 18px; margin: 10px">Enter Achievement Details</label>
                                                    <br>
                                                    <div class="col-md-7">
                                                        <label>School where the award was received from:</label>
                                                        <select class="form-control" name="stud_hon_schname[]" required>
-                                                          <option value="" selected disabled>-- Select Type --</option>
+                                                          <option value="" selected disabled>-- Select School--</option>
                                                               <?php  
                                                                   $sqlemp = "SELECT * FROM  `t_stud_profile` AS SP 
                                                                              INNER JOIN `t_stud_educational_bg_details` AS EDUCDET 
@@ -46,7 +46,7 @@
                                                                         $stud_no = $row["stud_number"];
                                                                         $school_name = $row["educ_bg_school_name"];
                                                               ?>
-                                                              <option value="<?php echo $school_name ?>">
+                                                              <option value="<?php echo $ID ?>">
                                                                   <?php echo $school_name; ?>
                                                               </option>
                                                           <?php } ?>
@@ -55,12 +55,13 @@
                                                     <div class="col-md-5">
                                                        <label>Achievement Type:</label>
                                                        <label>Level of Education:</label>
-                                                         <select class="form-control" name="stud_hon_level[]">
+                                                         <select class="form-control" name="stud_hon_rectype[]">
                                                             <option value="">-- Select Type --</option>
                                                             <option value="Honors">Honors</option>
                                                             <option value="Award">Award</option>
                                                         </select>
                                                    </div>
+                                                    <div id="SPACER" class="row" style="margin: 10px"></div>
                                                     <div class="col-md-10">
                                                        <label>Achievement Name/Description:</label>
                                                        <input class="form-control" placeholder="" name="stud_hon_desc[]" required>
@@ -96,32 +97,3 @@
     </div>
 </div>
 
- <script src="../../../resources-web/custom/advanced-form.js"></script>
- <script src="../../../resources-web/custom/jquery.multifield.min.js"></script> 
- <script>
-
-        $('.form-content').multifield({
-            section: '.group',
-            btnAdd:'#btnAdd',
-            btnRemove:'.btnRemove',
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=place]').val($(this).val());            
-            });
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=reqperson]').val($(this).val());            
-            });
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=asttypesss]').val($(this).val());            
-            });
-        });
-
-</script>

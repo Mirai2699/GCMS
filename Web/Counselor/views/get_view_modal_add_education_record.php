@@ -14,7 +14,7 @@
                                <td>                          
                                    <form action="../functionalities/manage_education_record.php" method="POST">
                                        <div class="form-content">
-                                            <input type="hidden" name="stud_ID" value="<?php echo $ID;?>">
+                                            <input type="hidden" name="stud_ID" value="<?php echo $stud_ID;?>">
                                             <input type="hidden" name="stud_no" value="<?php echo $stud_no;?>">
                                             <div class="col-md-12">
                                               <div class="col-md-4">
@@ -110,32 +110,3 @@
     </div>
 </div>
 
- <script src="../../../resources-web/custom/advanced-form.js"></script>
- <script src="../../../resources-web/custom/jquery.multifield.min.js"></script> 
- <script>
-
-        $('.form-content').multifield({
-            section: '.group',
-            btnAdd:'#btnAdd',
-            btnRemove:'.btnRemove',
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=place]').val($(this).val());            
-            });
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=reqperson]').val($(this).val());            
-            });
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=asttypesss]').val($(this).val());            
-            });
-        });
-
-</script>

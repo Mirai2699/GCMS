@@ -79,7 +79,7 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                        $view_query = mysqli_query($connection,"SELECT * FROM `r_academic_year` where acadyr_active_flag = 'Active' ");
+                                        $view_query = mysqli_query($connection,"SELECT * FROM `r_academic_year` ");
                                         while($row = mysqli_fetch_assoc($view_query))
                                         {
                                             $ID = $row["acadyr_ID"];

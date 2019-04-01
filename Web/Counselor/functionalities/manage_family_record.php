@@ -64,9 +64,49 @@
 
 	 }
 
-	 else if (isset($_POST['edit_'])) 
-	 {
+		 else if (isset($_POST['edit_fam_rec'])) 
+		 {      
 
-	 
-	 }
+		 	include ("../../../db_con.php");
+
+		 		$stud_fam_type = $_POST['stud_fam_type'];
+		 		$stud_fam_lname = $_POST['stud_fam_lname'];
+		 		$stud_fam_mname = $_POST['stud_fam_mname'];
+		 		$stud_fam_fname = $_POST['stud_fam_fname'];
+		 		$stud_fam_age = $_POST['stud_fam_age'];
+		 		$stud_fam_stat = $_POST['stud_fam_stat'];
+		 		$stud_fam_educattain = $_POST['stud_fam_educattain'];
+		 		$stud_fam_occup = $_POST['stud_fam_occup'];
+		 		$stud_fam_empname = $_POST['stud_fam_empname'];
+		 		$stud_fam_empadd = $_POST['stud_fam_empadd'];
+		 		$stud_fam_stud_ref = $_POST['stud_no'];
+		 		$stud_fam_ID = $_POST['famInf_ID'];
+		 		$stud_ID = $_POST['stud_ID'];
+
+		 		      $query = mysqli_query($connection,"UPDATE t_stud_family_bg_rec SET 
+
+		 		                                            famInf_type = '$stud_fam_type', 
+		 		                                            famInf_lastname = '$stud_fam_lname', 
+		 		                                            famInf_middlename = '$stud_fam_mname', 
+		 		                                            famInf_firstname = '$stud_fam_fname', 
+		 		                                            famInf_age = '$stud_fam_age', 
+		 		                                            famInf_stat = '$stud_fam_stat', 
+		 		                                            famInf_educ_attain = '$stud_fam_educattain', 
+		 		                                            famInf_occupation = '$stud_fam_occup', 
+		 		                                            famInf_empl_name = '$stud_fam_empname', 
+		 		                                            famInf_empl_address = '$stud_fam_empadd', 
+		 		                                            famInf_mod_date = CURRENT_TIMESTAMP  
+
+		 		                                        WHERE famInf_ID = '$stud_fam_ID' ");
+
+		 		  
+		 		
+
+		 		//Return to Landing Page
+
+		 		     echo "<script type=\"text/javascript\">".
+		 		              "alert ('You have successfully updated the student's family background record!');".
+		 		             "</script>";
+		 		     echo "<script>setTimeout(\"location.href = '../views/view_profile_details.php?getID=$stud_ID';\",0);</script>";
+		 }
 ?>

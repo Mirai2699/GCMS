@@ -124,12 +124,13 @@
                                                                 <select id="myDropdown" class="form-control" name="CG_stud_no[]" style="width: 100%">
                                                                       <option value="" selected disabled>-- Select Students --</option>
                                                                        <?php  
+                                                                           $datenow = date('Y-m-d');
                                                                            $sqlemp = "SELECT * FROM `t_stud_visitation` AS VIS
                                                                                             INNER JOIN `t_stud_profile` AS STUD
                                                                                             INNER JOIN `r_courses` AS CORS
                                                                                             ON VIS.vs_stud_no = STUD.stud_number
                                                                                             and CORS.course_ID = STUD.stud_course
-                                                                                            WHERE vs_visit_type = 1 ORDER BY vs_code DESC";
+                                                                                            WHERE vs_visit_type = 1 and vs_date_visit = '$datenow' ORDER BY vs_code DESC";
                                                                            $results = mysqli_query($connection, $sqlemp) or die("Bad Query: $sql");
                                                                                while($row = mysqli_fetch_assoc($results))
                                                                                {

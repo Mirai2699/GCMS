@@ -38,7 +38,7 @@
       <!--logo start-->
       <div class="brand">
 
-          <a data-toggle="modal" href="#about_us" class="logo" title="About Us">
+          <a href="index.html" class="logo">
               <img src="../../../resources-web/images/gcsms/gcsmslogo.png" style="width:80%" alt="">
           </a>
           <div class="sidebar-toggle-box">
@@ -361,16 +361,7 @@
 
 
     </header>
-    <!--MODAL INCLUDES-->
-      <?php include("get_view_modal_about_us.php");?>
-
-    <!--MODAL INCLUDES-->
-
-
-
-    <!--ON PAGE SCRIPT-->
-
-    <!--Show Password-->
+        <!--Show Password-->
     <script type="text/javascript">
     function showPass()
     {

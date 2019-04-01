@@ -8,14 +8,13 @@
 <script src="../../../resources-web/js/jquery.nicescroll.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="../../../resources-web/js/skycons/skycons.js"></script>
-<script src="../../../resources-web/js/jquery.scrollTo/jquery.scrollTo.js"></script>
-<script type="text/javascript" src="../../../resources-webjs/ckeditor/ckeditor.js"></script><!-- 
+<script src="../../../resources-web/js/jquery.scrollTo/jquery.scrollTo.js"></script><!-- 
 <script src="../../../resources-web/js/calendar/clndr.js"></script>
 <script src="../../../resources-web/js/calendar/moment-2.2.1.js"></script>
 <script src="../../../resources-web/js/evnt.calendar.init.js"></script> -->
-<!-- <script src="../../../resources-web/js/jvector-map/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../../../resources-web/js/jvector-map/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="../../../resources-web/js/jvector-map/jquery-jvectormap-us-lcc-en.js"></script>
-<script src="../../../resources-web/js/gauge/gauge.js"></script> -->
+<script src="../../../resources-web/js/gauge/gauge.js"></script>
 
 <!--common script init for all pages-->
 <script src="../../../resources-web/js/scripts.js"></script>

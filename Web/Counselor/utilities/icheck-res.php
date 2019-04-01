@@ -20,6 +20,4 @@
     <link href="../../../resources-web/js/iCheck/skins/flat/yellow.css" rel="stylesheet">
     <link href="../../../resources-web/js/iCheck/skins/flat/purple.css" rel="stylesheet">
 
-
-    <!--icheck init -->
-<script src="../../../resources-web/js/icheck-init.js"></script>
+    <script src="../../../resources-web/js/icheck-init.js"></script>

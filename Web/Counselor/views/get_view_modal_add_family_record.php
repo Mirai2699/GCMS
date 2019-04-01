@@ -14,7 +14,7 @@
                                <td>                          
                                    <form action="../functionalities/manage_family_record.php" method="POST">
                                        <div class="form-content">
-                                            <input type="hidden" name="stud_ID" value="<?php echo $ID;?>">
+                                            <input type="hidden" name="stud_ID" value="<?php echo $stud_ID;?>">
                                             <input type="hidden" name="stud_no" value="<?php echo $stud_no;?>">
                                             <div class="row" style="margin: 4px">
                                                <div class="col-md-12">
@@ -93,13 +93,14 @@
                                                     <label>Employer's Address:</label>
                                                     <input class="form-control" placeholder="" name="stud_fam_empadd[]" required>
                                                 </div>
-                                                 <div id="SPACER" class="row" style="margin: 10px"></div>
-                                                <br>
                                                 <div class="col-md-1">
                                                    <div class="form-group">
                                                        <button type="button" class="btn btn-danger btnRemove" style="margin-top: 5px;"><i class="fa fa-times"></i></button>
                                                    </div>
                                                </div>
+                                                 <div id="SPACER" class="row" style="margin: 10px"></div>
+                                                <br>
+                                                
                                               </div>
                                            </div>
                                        </div>
@@ -107,8 +108,15 @@
                                            <div class="panel" style="padding: 1px; background-color: #6e6e6e"></div>
                                            <div style="overflow:auto;">
                                              <div style="float:right;">
-                                               <button type="submit" class="btn btn-primary" name="add_fam_rec">
-                                                <i class="fa fa-external-link"></i>&nbsp;Submit</button>
+                                                <button class="btn btn-success" type="submit" name="add_fam_rec" style="margin-top: 4px">
+                                                        <i class="fa fa-save"></i>
+                                                        Save Record
+                                                </button>
+                                                &nbsp;&nbsp;&nbsp;
+                                                 <button class="btn btn-danger" type="submit" data-dismiss="modal" style="margin-top: 4px">
+                                                        <i class="fa fa-times"></i>
+                                                        Cancel
+                                                </button>
                                              </div>
                                            </div>
                                        </div>
@@ -125,32 +133,3 @@
     </div>
 </div>
 
- <script src="../../../resources-web/custom/advanced-form.js"></script>
- <script src="../../../resources-web/custom/jquery.multifield.min.js"></script> 
- <script>
-
-        $('.form-content').multifield({
-            section: '.group',
-            btnAdd:'#btnAdd',
-            btnRemove:'.btnRemove',
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=place]').val($(this).val());            
-            });
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=reqperson]').val($(this).val());            
-            });
-        });
-
-        $(function(){
-            $('select').on('change',function(){                        
-                $('input[name=asttypesss]').val($(this).val());            
-            });
-        });
-
-</script>

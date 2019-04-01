@@ -78,7 +78,7 @@
                         <div class="col-md-6">
                             <label>Appointment Type:</label>
                             <select name="vs_appoint" class="form-control" style="color: black;" required>
-                              <option value="" selected disabled>-- Select Appointment Type  --</option>
+                              <option value="" selected disabled></option>
                               <?php  
                                   $sqlemp = "SELECT * FROM `r_appointment_type`";
                                   $results = mysqli_query($connection, $sqlemp) or die("Bad Query: $sql");
@@ -95,7 +95,7 @@
                         <div class="col-md-6">
                             <label>Purpose of Visit:</label>
                             <select name="vs_purpose" class="form-control" style="color: black;" required>
-                              <option value="" selected disabled>-- Select Purpose of Visit  --</option>
+                              <option value="" selected disabled></option>
                               <?php  
                                   $sqlemp = "SELECT * FROM `r_visit_type`";
                                   $results = mysqli_query($connection, $sqlemp) or die("Bad Query: $sql");

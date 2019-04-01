@@ -1,0 +1,460 @@
+CREATE DATABASE gcms_v2
+
+CREATE TABLE  r_user_role
+(
+	usr_ID int(10) AUTO_INCREMENT NOT NULL,
+	usr_desc varchar(50) NOT NULL,
+	usr_stat bit(1) NOT NULL,
+	usr_timestamp datetime NOT NULL,
+		Primary key(usr_ID)
+)
+
+CREATE TABLE t_accounts
+(
+	acc_ID int(10) AUTO_INCREMENT NOT NULL,
+	acc_username varchar(100) NOT NULL,
+	acc_password varchar(100) NOT NULL,
+	acc_user_role varchar(50) NOT NULL,
+	acc_picture varchar(255) DEFAULT “default.png” NOT NULL ,
+	acc_active_flag bit(1) DEFAULT 1 NOT NULL,
+		Primary key(acc_ID),
+		CONSTRAINT FK_acc_role FOREIGN KEY (acc_user_role)
+    			REFERENCES r_user_role(usr_desc) 
+)
+
+
+CREATE TABLE t_users_log
+(
+	log_No	int(200) AUTO_INCREMENT NOT NULL,
+	log_userID int(10) NOT NULL,
+	log_usertype int(10) NOT NULL,
+	log_datestamp date  NOT NULL,
+	log_timestamp time NOT NULL,
+		Primary key(log_No),
+		CONSTRAINT FK_loguserID FOREIGN KEY (log_userID)
+    			REFERENCES t_accounts(acc_ID) 
+
+)
+
+CREATE TABLE r_courses
+(
+	course_ID int(10) AUTO_INCREMENT NOT NULL,
+	course_code varchar(20) NOT NULL,
+	course_name varchar(255) NOT NULL,
+	course_add_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	course_mod_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	course_active_flag varchar(10) DEFAULT “Active” NOT NULL,
+		Primary key(course_ID) 
+
+)
+CREATE TABLE r_counsil_type
+(
+	ct_ID int(10) AUTO_INCREMENT NOT NULL,
+	ct_desc varchar(255) NOT NULL,
+	ct_add_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	ct_mod_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	ct_active_flag varchar(10) DEFAULT “Active” NOT NULL,
+		Primary key(ct_ID) 
+
+)
+
+CREATE TABLE r_visit_type
+(
+	vt_ID int(10) AUTO_INCREMENT NOT NULL,
+	vt_desc varchar(255) NOT NULL,
+	vt_add_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	vt_mod_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	vt_active_flag varchar(10) DEFAULT “Active” NOT NULL,
+		Primary key(vt_ID) 
+
+)
+
+CREATE TABLE r_document_type
+(
+	dt_ID int(10) AUTO_INCREMENT NOT NULL,
+	dt_desc varchar(255) NOT NULL,
+	dt_add_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	dt_mod_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	dt_active_flag varchar(10) DEFAULT “Active” NOT NULL,
+		Primary key(dt_ID) 
+
+)
+
+CREATE TABLE r_semester
+(
+	sem_ID int(10) AUTO_INCREMENT NOT NULL,
+	sem_desc varchar(255) NOT NULL,
+	sem_add_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	sem_mod_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	sem_active_flag varchar(10) DEFAULT “Active” NOT NULL,
+		Primary key(sem_ID) 
+
+)
+
+
+
+
+
+CREATE TABLE r_academic_year
+(
+	acadyr_ID int(10) AUTO_INCREMENT NOT NULL,
+	acadyr_start_year date NOT NULL,
+	acadyr_end_year date NOT NULL,
+	acadyr_add_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	acadyr_mod_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	acadyr_active_flag varchar(10) DEFAULT “Active” NOT NULL,
+		Primary key(acadyr_ID) 
+
+)
+
+
+CREATE TABLE r_appointment_type
+(
+	app_ID int(10) AUTO_INCREMENT NOT NULL,
+	app_desc varchar(50) NOT NULL,
+	app_add_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	app_mod_date datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	app_active_flag varchar(10) DEFAULT “Active” NOT NULL,
+		Primary key(app_ID) 
+
+)
+
+CREATE TABLE t_stud_visitation
+(
+	vs_ID int(10) AUTO_INCREMENT NOT NULL,
+	vs_code varchar(50) NOT NULL,
+	vs_stud_no varchar(50) NOT NULL, 
+	vs_app_type int(10) NOT NULL, 
+	vs_visit_type int(10) NOT NULL,
+	vs_visit_desc varchar(255) NOT NULL,
+	vs_date_visit date NOT NULL,
+	vs_time_visit time NOT NULL,
+		Primary key(vs_ID),
+		CONSTRAINT FK_studno FOREIGN KEY (vs_stud_no)
+    			REFERENCES t_stud_profile(stud_number),
+
+		CONSTRAINT FK_apptype FOREIGN KEY (vs_app_type)
+    			REFERENCES r_appointment_type (app_ID),
+
+		CONSTRAINT FK_visittype FOREIGN KEY (vs_visit_type)
+    			REFERENCES r_visit_type(vt_ID)
+
+)
+
+
+
+
+CREATE TABLE t_stud_profile
+(
+	stud_ID int(10) AUTO_INCREMENT NOT NULL,
+	stud_number varchar(50) NOT NULL, 
+	stud_lastname varchar(100) NOT NULL,
+	stud_middlename varchar(100) NULL,
+	stud_firstname varchar(100) NOT NULL,
+	stud_course int(10) NOT NULL,
+	stud_yearlevel int(10) NOT NULL,
+	stud_section int(10) NOT NULL,
+	stud_gender varchar(20) NOT NULL,
+	stud_birthdate date NOT NULL,
+	stid_birthplace varchar(255) NULL,
+	stud_homeadd varchar(255) NOT NULL,
+	stud_provadd varchar(255) NULL,
+	stud_telephone_no varchar(15) NULL, 
+	stud_mobile_no int(12) NULL,
+	stud_email varchar(255) NULL,
+	stud_acadstatus varchar(20) NOT NULL,
+	stud_add_date datetime DEFAULT current_timestamp NOT NULL,
+	stud_mod_date datetime DEFAULT current_timestamp NOT NULL,
+	stud_active_flag varchar DEFAULT “Active” NOT NULL,
+		Primary key(stud_ID),
+		UNIQUE(stud_number),
+		CONSTRAINT FK_course FOREIGN KEY (stud_course)
+    			REFERENCES r_courses(course_ID)
+
+)
+
+CREATE TABLE t_stud_psych_rec
+(
+	psych_ID int(10) AUTO_INCREMENT NOT NULL,
+	psych_student varchar(50) NOT NULL, 
+	psych_last_consult date NOT NULL,
+	psych_reason_consult varchar(255) NOT NULL,
+	psych_add_date datetime DEFAULT current_timestamp NOT NULL,
+	psych_active_flag varchar(20) DEFAULT “Show” NOT NULL,
+		Primary key(psych_ID),
+		CONSTRAINT FK_stud_pysch_rec FOREIGN KEY (psych_student)  
+			REFERENCES t_stud_profile(stud_number)
+
+)
+
+
+
+
+CREATE TABLE t_stud_physical_rec
+(
+	phy_rec_ID int(10) AUTO_INCREMENT NOT NULL,
+	phy_rec_student varchar(50) NOT NULL, 
+	phy_rec_vision varchar(50) NOT NULL,
+	phy_rec_hearing varchar(50) NOT NULL,
+	phy_rec_speech varchar(50) NOT NULL,
+	phy_rec_genhealth varchar(50) NOT NULL,
+	phy_rec_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	phy_rec_mod_date datetime DEFAULT current_timestamp NOT NULL, 
+	phy_rec_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+		Primary key(phy_rec_ID),
+		CONSTRAINT FK_stud_phy_rec FOREIGN KEY (phy_rec_student)    			
+			REFERENCES t_stud_profile(stud_number)
+
+)
+
+CREATE TABLE t_stud_personal_rec
+(
+	person_rec_ID int(10) AUTO_INCREMENT NOT NULL,
+	person_rec_student_no varchar(50) NOT NULL, 
+
+	person_rec_weight varchar(50) NOT NULL,
+	person_rec_height varchar(50) NOT NULL,
+	person_rec_complexion varchar(50) NOT NULL,
+	person_rec_religion varchar(50) NOT NULL,
+	person_rec_hs_genave varchar(50) NOT NULL,
+	person_rec_civil_stat varchar(50) NOT NULL,
+	person_rec_working_stat varchar(50) NOT NULL,
+	person_rec_empl_name varchar(100) NULL,
+	person_rec_emp_address varchar(255) NULL,
+	person_rec_emerg_contact_name varchar(100) NOT NULL,
+	person_rec_emerg_contact_address varchar(255) NOT NULL,
+	person_rec_emerg_contact_number varchar(20) NOT NULL,
+	person_rec_contact_relationship varchar(30) NULL,
+	person_rec_parents_marital_stat varchar(30) NOT NULL,
+	person_rec_fam_chil_no varchar(50) NOT NULL,
+	person_rec_brother_no int(50) NULL,
+	person_rec_sister_no int(11) NULL,
+	person_rec_siblings_employed int(11) NOT NULL,
+	person_rec_ordinal_position varchar(30) NOT NULL,
+	person_rec_schooling_finance varchar(30) NOT NULL,
+	person_rec_weekly_allowance double(9,2) NOT NULL,
+	person_rec_parents_total_monthlyinc varchar(20) NOT NULL,
+	person_rec_quiet_place varchar(10) NOT NULL,
+	person_rec_room_share varchar(50) NOT NULL,
+	person_rec_residence varchar(50) NOT NULL,
+
+
+	person_rec_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	person_rec_mod_date datetime DEFAULT current_timestamp NOT NULL, 
+	person_rec_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(person_rec_ID),
+		CONSTRAINT FK_stud_person_rec FOREIGN KEY (person_rec_student_no)    			
+			REFERENCES t_stud_profile(stud_number)
+
+)
+
+CREATE TABLE t_stud_education_rec
+(
+	educ_ID int(10) AUTO_INCREMENT NOT NULL,
+	educ_student varchar(50) NOT NULL,
+
+	educ_nature_schooling varchar(50) NOT NULL,
+	educ_interrupt_reason varchar(50) NOT NULL,
+
+	educ_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	educ_mod_date datetime DEFAULT current_timestamp NOT NULL, 
+	educ_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(educ_ID),
+		CONSTRAINT FK_stud_educ_rec FOREIGN KEY (educ_student)    			
+			REFERENCES t_stud_profile(stud_number)
+
+)
+
+
+CREATE TABLE t_stud_educational_bg_details
+(
+	educ_bg_ID int(10) AUTO_INCREMENT NOT NULL,
+	educ_bg_student varchar(50) NOT NULL,
+
+	educ_bg_level varchar(50) NOT NULL,
+	educ_bg_school_name varchar(255) NOT NULL,
+	educ_bg_school_address varchar(255) NOT NULL,
+	educ_bg_school_type varchar(50) NOT NULL,
+	educ_bg_year_graduated year NOT NULL,
+
+	educ_bg_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	educ_bg_mod_date datetime DEFAULT current_timestamp NOT NULL, 
+	educ_bg_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(educ_bg_ID),
+		CONSTRAINT FK_stud_educbg_rec FOREIGN KEY (educ_bg_student)    			
+			REFERENCES t_stud_profile(stud_number)
+
+)
+
+CREATE TABLE t_stud_honors_awards
+(
+	hon_ID int(10) AUTO_INCREMENT NOT NULL,
+	hon_student varchar(50) NOT NULL,
+	hon_school int(10) NOT NULL,
+
+	hon_received_type varchar(50) NOT NULL,
+	hon_description varchar(255) NOT NULL,
+
+	hon_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	hon_mod_date datetime DEFAULT current_timestamp NOT NULL, 
+	hon_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(hon_ID),
+		CONSTRAINT FK_stud_hon_rec FOREIGN KEY (hon_student)    			
+			REFERENCES t_stud_profile(stud_number),
+		CONSTRAINT FK_stud_school FOREIGN KEY (hon_school)    			
+			REFERENCES t_stud_educational_bg_details(educ_bg_ID)
+
+)
+
+
+CREATE TABLE t_stud_family_bg_rec
+(
+	famInf_ID int(10) AUTO_INCREMENT NOT NULL,
+	famInf_student varchar(50) NOT NULL,
+
+	famInf_type varchar(50) NOT NULL,
+	famInf_lastname varchar(255) NOT NULL,
+	famInf_middlename varchar(50) NOT NULL,
+	famInf_firstname varchar(255) NOT NULL,
+	famInf_age int(50) NOT NULL,
+	famInf_stat varchar(255) NOT NULL,
+	famInf_educ_attain varchar(50) NULL,
+	famInf_occupation varchar(50) NULL,
+	famInf_empl_name varchar(50)  NULL,
+	famInf_empl_address varchar(255)  NULL,
+
+	famInf_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	famInf_mod_date datetime DEFAULT current_timestamp NOT NULL, 
+	famInf_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(famInf_ID),
+		CONSTRAINT FK_stud_famInf_rec FOREIGN KEY (famInf_student)    			
+			REFERENCES t_stud_profile(stud_number)
+
+)
+
+CREATE TABLE t_stud_batch_rec
+(
+ 	 batch_ID int(10) AUTO_INCREMENT NOT NULL,
+	 batch_student varchar(50) NOT NULL,
+
+	 batch_year varchar(20) NOT NULL,
+	 batch_stud_stat varchar(30) NOT NULL,
+
+	 batch_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	 batch_mod_date datetime DEFAULT current_timestamp NOT NULL, 
+	 batch_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(batch_ID),
+		CONSTRAINT FK_stud_batch_rec FOREIGN KEY (batch_student)    			
+			REFERENCES t_stud_profile(stud_number)
+
+)
+
+CREATE TABLE t_files_upload
+(
+ 	 file_ID int(10) AUTO_INCREMENT NOT NULL,
+
+	 file_name varchar(200) NOT NULL,
+	 file_uploadby varchar(50) NOT NULL,
+	 file_docu_type int(10) NOT NULL,
+	 file_rel_type varchar(20) NOT NULL,
+	 file_filepath varchar(255) NOT NULL,
+
+	 file_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	 file_active_flag varchar(20) DEFAULT "Active" NOT NULL,
+
+		Primary key(file_ID),
+		CONSTRAINT FK_docutype FOREIGN KEY (file_docu_type)    			
+			REFERENCES r_document_type(dt_ID)
+
+)
+
+
+
+
+CREATE TABLE t_counseling_individual
+(
+ 	 CI_ID int(10) AUTO_INCREMENT NOT NULL,
+
+	 CI_code varchar(200) NOT NULL,
+	 CI_vs_ID int(10) NOT NULL,
+	 CI_student_ref varchar(20) NOT NULL,
+	 CI_couns_date int(10) NOT NULL,
+	 CI_couns_type int(10) NOT NULL,
+	 CI_appoint_type int(10) NOT NULL,
+	 CI_nature_case varchar(200) NOT NULL,
+	 CI_background varchar(200) NOT NULL,
+	 CI_goals varchar(200) NOT NULL,
+	 CI_comments varchar(200) NOT NULL,
+	 CI_recommendation varchar(200) NOT NULL,
+	 CI_remarks varchar(150) NULL,
+
+	 CI_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	 CI_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(CI_ID),
+		CONSTRAINT FK_CIvisit_type FOREIGN KEY (CI_vs_ID)    			
+			REFERENCES t_stud_visitation(vs_ID),
+		CONSTRAINT FK_CIstudent_ref FOREIGN KEY (CI_student_ref)    			
+			REFERENCES t_stud_profile(stud_number),
+		CONSTRAINT FK_CIcouns_type FOREIGN KEY (CI_couns_type)    			
+			REFERENCES r_counsel_type(ct_ID),
+		CONSTRAINT FK_CIappoint_type FOREIGN KEY (CI_appoint_type)    			
+			REFERENCES r_appointment_type(app_ID)
+
+)
+
+CREATE TABLE t_counseling_group
+(
+ 	 CG_ID int(10) AUTO_INCREMENT NOT NULL,
+
+	 CG_code varchar(200) NOT NULL,
+	 CG_couns_date int(10) NOT NULL,
+	 CG_couns_type int(10) NOT NULL,
+	 CG_nature_case varchar(200) NOT NULL,
+	 CG_background varchar(200) NOT NULL,
+	 CG_goals varchar(200) NOT NULL,
+	 CG_comments varchar(200) NOT NULL,
+	 CG_recommendation varchar(200) NOT NULL,
+	 CG_remarks varchar(150) NULL,
+
+	 CG_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	 CG_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(CG_ID),
+		CONSTRAINT FK_CGcouns_type FOREIGN KEY (CG_couns_type)    			
+			REFERENCES r_counsel_type(ct_ID)
+		
+
+)
+
+CREATE TABLE t_counseling_group_stud_ref
+(
+ 	 GSR_ID int(10) AUTO_INCREMENT NOT NULL,
+
+	 GSR_CG_ID int(10) NOT NULL,
+	 GSR_student_ref varchar(200) NOT NULL,
+	 GSR_appoint_type int(10) NOT NULL,
+
+	 GSR_add_date datetime DEFAULT current_timestamp NOT NULL, 
+	 GSR_active_flag varchar(20) DEFAULT "Show" NOT NULL,
+
+		Primary key(GSR_ID),
+		CONSTRAINT FK_GSRstudent_ref FOREIGN KEY (GSR_student_ref)    			
+			REFERENCES t_stud_profile(stud_number),
+		CONSTRAINT FK_GSRcouns_group FOREIGN KEY (GSR_CG_ID)    			
+			REFERENCES t_counseling_group(CG_ID),
+		CONSTRAINT FK_GSRappoint_type FOREIGN KEY (GSR_appoint_type)    			
+			REFERENCES r_appointment_type(app_ID)
+
+)
+
+
+
+
+

@@ -46,7 +46,7 @@
                         <span>Visitation Logs</span>
                     </a>
                 </li>
-                <!-- <li class="sub-menu">
+                <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-laptop"></i>
                         <span>Reports</span>
@@ -57,7 +57,7 @@
                         <li><a href="rep_grpserv.php">Group Services</a></li>
                         <li><a href="rep_visit.php">Vistitation Logs</a></li>
                     </ul>
-                </li> -->
+                </li>
             </ul> 
             <hr>          
         </div>

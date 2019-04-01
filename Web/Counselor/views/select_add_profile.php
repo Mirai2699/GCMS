@@ -31,25 +31,33 @@
                                 <a href="add_studprofile_only.php" style="height: 200px" class="btn btn-danger btn-lg btn-block">
                                     <br>
                                     <i class="fa fa-plus-square" style="font-size:60px"></i>
-                                    <h3 style="font-family: calibri">Add One Individual <br> Student Profile Record <br>Via Manual Input</h3>
+                                    <h4 style="font-family: calibri">Add One Individual <br> Student Profile Record <br>Via Manual Input</h4>
                                 </a>
                             </div>
                             <div class="col-md-3" style="margin: 41px;">
                                 <a href="add_profile.php" style="height: 200px" class="btn btn-info btn-lg btn-block">
                                     <br>
                                     <i class="fa fa-check-square-o" style="font-size:60px"></i>
-                                    <h3 style="font-family: calibri">Add One Individual Complete <br>Student Record <br>Via Manual Input</h3>
+                                    <h4 style="font-family: calibri">Add One Individual <br> Complete Student Record <br>Via Manual Input</h4>
                                 </a>
                             </div>
                             <div class="col-md-3" style="margin: 41px;">
                                 <a href="#excelimport" data-toggle="modal" style="height: 200px" class="btn btn-success btn-lg btn-block">
                                     <br>
                                     <i class="fa fa-copy" style="font-size:60px"></i>
-                                    <h3 style="font-family: calibri">Add Multiple Student Records <br>Via Excel Import</h3>
+                                    <h4 style="font-family: calibri">Add Multiple<br> Student Records <br>Via Excel Import</h4>
                                 </a>
                             </div>
                 </section>
-                <!--Excel Import-->
+                <!--
+                    **
+                    ***
+                    ****
+                    Excel Import
+                    ****
+                    ***
+                    **
+                -->
                 <div aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="excelimport" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -62,7 +70,7 @@
                                 </div>  
                                 <div class="modal-body" style="height:140px;">
                                     <div class="col-md-12">
-                                        <form>
+                                        <form method="post" action="..\functionalities\import_excel_1.php" enctype="multipart/form-data">
                                             <input type="file" name="excel_upload" class="form-control">
                                             <br>
                                             <div class="col-md-12">

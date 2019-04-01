@@ -3,7 +3,6 @@
      include ("../utilities/navibar.php");
      include ("../utilities/BaseJs.php");
      include ("../utilities/Tables.php");
-     
 
     if (isset($_GET['getID'])) 
     {
@@ -67,7 +66,7 @@
                         <div class="col-md-12">
                             <!--collapse start-->
                             <div class="panel-group m-bot20" id="accordion">
-                               <!--0. ACADEMIC YEAR-->
+                               <!--1. STUDENT'S PROFILE-->
                                <div class="panel">
                                    <div class="panel-heading" style="background-color: #9e9e9e">
                                        <h4 class="panel-title">
@@ -163,36 +162,49 @@
                                     </div>
                                     <div id="collapsefive" class="panel-collapse collapse">
                                         <div class="panel-body" style="background-color: #e0f7fa ">
-                                           <div class="col-md-12">
-                                                  <?php
-                                                         $view_query = mysqli_query($connection,"SELECT * FROM  `t_stud_profile` AS SP 
-                                                                                                 INNER JOIN `t_stud_education_rec` AS EDUC ON SP.stud_number = EDUC.educ_student WHERE SP.stud_ID = '$stud_ID'");
-                                                     while($row = mysqli_fetch_assoc($view_query))
-                                                     {
-                                                         $ID = $row["educ_ID"];
-                                                         $stud_no = $row["stud_number"];
-                                                         $educ_nature_sch = $row["educ_nature_schooling"];
-                                                         $educ_interrupt_reason = $row["educ_interrupt_reason"];
-                                                         $educ_mod_date = $row["educ_mod_date"];
-                                                  ?>
-                                                  <div class="col-md-4">
-                                                      <label>Nature of Schooling:</label>
-                                                      <select class="form-control" name="stud_educ_nature">
-                                                          <option value="<?php echo $educ_nature_sch?>" selected><?php echo $educ_nature_sch?></option>
-                                                          <option value="Continuous">Continuous</option>
-                                                          <option value="Interrupted">Interrupted</option>
-                                                      </select>
-                                                  </div>
-                                                  <div class="col-md-8">
-                                                      <label>Reason of Interrupt: <small>(Only if the nature of schooling is interrupted.)</small></label>
-                                                      <input class="form-control" placeholder="" name="stud_educ_interrupt" value="<?php echo $educ_interrupt_reason?>" required>
-                                                  <?php } ?>
-                                                  </div>
-                                                  <div id="SPACER" class="row" style="margin: 10px"></div>
-                                                  <?php 
-                                                        include ("get_view_educational_details.php");
-                                                  ?>
-                                        </div>
+                                          
+                                             <div class="col-md-12">
+                                                    <?php
+                                                           $view_query = mysqli_query($connection,"SELECT * FROM  `t_stud_profile` AS SP 
+                                                                                                   INNER JOIN `t_stud_education_rec` AS EDUC ON SP.stud_number = EDUC.educ_student WHERE SP.stud_ID = '$stud_ID'");
+                                                       while($row = mysqli_fetch_assoc($view_query))
+                                                       {
+                                                           $natID = $row["educ_ID"];
+                                                           $stud_no = $row["stud_number"];
+                                                           $educ_nature_sch = $row["educ_nature_schooling"];
+                                                           $educ_interrupt_reason = $row["educ_interrupt_reason"];
+                                                           $educ_mod_date = $row["educ_mod_date"];
+                                                    ?>
+                                                    <form action="../functionalities/manage_education_record.php" method="POST">
+                                                      <input type="hidden" name="educnat_ID" value="<?php echo $natID;?>">
+                                                      <input type="hidden" name="stud_ID" value="<?php echo $stud_ID;?>">
+                                                      <input type="hidden" name="stud_no" value="<?php echo $stud_no;?>">
+                                                      <div class="col-md-4">
+                                                          <label>Nature of Schooling:</label>
+                                                          <select class="form-control" name="stud_educ_nature">
+                                                              <option value="<?php echo $educ_nature_sch?>" selected><?php echo $educ_nature_sch?></option>
+                                                              <option value="Continuous">Continuous</option>
+                                                              <option value="Interrupted">Interrupted</option>
+                                                          </select>
+                                                      </div>
+                                                      <div class="col-md-5">
+                                                          <label>Reason of Interrupt: <small>(Only if the nature of schooling is interrupted.)</small></label>
+                                                          <input class="form-control" placeholder="" name="stud_educ_interrupt" value="<?php echo $educ_interrupt_reason?>" required>
+                                                      <?php } ?>
+                                                      </div>
+                                                      <div class="col-md-2">
+                                                          <button type="submit" class="btn btn-warning" style="margin-top: 23px" name="edit_educnat_det">
+                                                            <i class="fa fa-save"></i>
+                                                            Save Modifications
+                                                        </button>
+                                                      </div>
+                                                    </form>
+                                                    <div id="SPACER" class="row" style="margin: 10px"></div>
+                                                    <?php 
+                                                          include ("get_view_educational_details.php");
+                                                    ?>
+                                          </div>
+
                                     </div>
                                 </div>
                                 <!-- END OF INFORMATION--->
@@ -211,3 +223,35 @@
     <!--main content end-->
 </section>
 <!--END CONTAINER FROM HEADER-->
+
+
+<!-- ON PAGE SCRIPT-->
+ <script src="../../../resources-web/custom/advanced-form.js"></script>
+ <script src="../../../resources-web/custom/jquery.multifield.min.js"></script> 
+ <script>
+
+        $('.form-content').multifield({
+            section: '.group',
+            btnAdd:'#btnAdd',
+            btnRemove:'.btnRemove',
+        });
+
+        $(function(){
+            $('select').on('change',function(){                        
+                $('input[name=place]').val($(this).val());            
+            });
+        });
+
+        $(function(){
+            $('select').on('change',function(){                        
+                $('input[name=reqperson]').val($(this).val());            
+            });
+        });
+
+        $(function(){
+            $('select').on('change',function(){                        
+                $('input[name=asttypesss]').val($(this).val());            
+            });
+        });
+
+</script>

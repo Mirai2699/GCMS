@@ -8,7 +8,7 @@
              <div class="modal-body" style="height:315px;"> 
              <!--START FORM-->                              
                 <form method="POST" action="../functionalities/manage_health_record.php">
-                  <input type="hidden" name="stud_ID" value="<?php echo $ID;?>">
+                  <input type="hidden" name="stud_ID" value="<?php echo $stud_ID;?>">
                   <input type="hidden" name="stud_no" value="<?php echo $stud_no;?>">
                   <div class="col-md-12">
                         <label style="font-size: 20px">Physical Health</label>
@@ -75,7 +75,7 @@
              <div class="modal-body" style="height:200px;"> 
              <!--START FORM-->                              
                 <form method="POST" action="../functionalities/manage_health_record.php">
-                  <input type="hidden" name="stud_ID" value="<?php echo $ID;?>">
+                  <input type="hidden" name="stud_ID" value="<?php echo $stud_ID;?>">
                   <input type="hidden" name="stud_no" value="<?php echo $stud_no;?>">
                   <div class="col-md-12">
                         <label style="font-size: 20px">Add Psychological Health Consultation Record</label>
@@ -123,7 +123,7 @@
              <div class="modal-body" style="height:200px;"> 
              <!--START FORM-->                              
                 <form method="POST" action="../functionalities/manage_health_record.php">
-                  <input type="hidden" name="stud_ID" value="<?php echo $ID;?>">
+                  <input type="hidden" name="stud_ID" value="<?php echo $stud_ID;?>">
                   <input type="hidden" name="stud_no" value="<?php echo $stud_no;?>">
                   <div class="col-md-12">
                         <label style="font-size: 20px">Add Physical Health Consultation Record</label>

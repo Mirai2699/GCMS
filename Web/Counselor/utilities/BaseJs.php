@@ -20,5 +20,10 @@
 <!--common script init for all pages-->
 <script src="../../../resources-web/js/scripts.js"></script>
 <!--script for this page-->
+
+<script src="../../../resouces-web/js/iCheck/jquery.icheck.js"></script>
+
+<script src="../../../resouces-web/js/select2/select2.js"></script>
+<script src="../../../resouces-web/js/select-init.js"></script>
 </body>
 </html>

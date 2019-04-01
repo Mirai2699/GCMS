@@ -60,7 +60,7 @@
                             <br>
                             <p style="text-align: left; font-size: 18px"><b>1.</b> This mode of entry will not be considered as a complete student record.
                             </p>
-                            <p style="text-align: left; font-size: 18px"><b>2.</b> After finishing this entry, the follow-up details and other information must be provided, after the manual accumulation of the student's personal, health,<br>&nbsp;&nbsp;&nbsp;&nbsp;family background, and educational background information details.
+                            <p style="text-align: left; font-size: 18px"><b>2.</b> After finishing this entry, the follow-up details and other information must be provided, after the manual accumulation of the student's personal, health, family background, and educational background information details.
                             </p>
                             <p style="text-align: left; font-size: 18px"><b>3.</b> Adding more details and the modification to the student record can be accessed through the view proflies tab in the navigation bar.
                             </p>
