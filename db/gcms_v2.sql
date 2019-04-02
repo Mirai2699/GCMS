@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2019 at 04:34 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+-- Generation Time: Apr 02, 2019 at 11:29 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -131,8 +131,7 @@ CREATE TABLE `r_document_type` (
 --
 
 INSERT INTO `r_document_type` (`dt_ID`, `dt_desc`, `dt_add_date`, `dt_mod_date`, `dt_active_flag`) VALUES
-(1, 'Certificate of Good Moral', '2018-12-22 20:13:24', '2018-12-22 20:13:38', 'Active'),
-(2, 'Recommendation letter', '2019-01-18 10:39:13', '2019-01-18 10:39:13', 'Active');
+(1, 'Certificate of Good Moral', '2018-12-22 20:13:24', '2018-12-22 20:13:38', 'Active');
 
 -- --------------------------------------------------------
 
@@ -154,10 +153,10 @@ CREATE TABLE `r_semester` (
 
 INSERT INTO `r_semester` (`sem_ID`, `sem_desc`, `sem_add_date`, `sem_mod_date`, `sem_active_flag`) VALUES
 (1, 'First Semester', '2018-12-22 20:28:06', '2018-12-22 20:28:06', 'Active'),
-(2, 'Second Semester', '2018-12-22 20:30:17', '2018-12-22 20:31:20', 'Inactive'),
-(3, 'Third Semester', '2018-12-22 20:30:29', '2018-12-22 20:30:29', 'Inactive'),
-(4, 'Fourth Semester', '2018-12-22 20:33:16', '2018-12-22 20:33:16', 'Inactive'),
-(5, 'Summer Semester', '2018-12-22 20:33:26', '2018-12-22 20:33:26', 'Inactive');
+(2, 'Second Semester', '2018-12-22 20:30:17', '2018-12-22 20:31:20', 'Active'),
+(3, 'Third Semester', '2018-12-22 20:30:29', '2018-12-22 20:30:29', 'Active'),
+(4, 'Fourth Semester', '2018-12-22 20:33:16', '2018-12-22 20:33:16', 'Active'),
+(5, 'Summer Semester', '2018-12-22 20:33:26', '2018-12-22 20:33:26', 'Active');
 
 -- --------------------------------------------------------
 
@@ -343,8 +342,7 @@ CREATE TABLE `t_files_upload` (
 
 INSERT INTO `t_files_upload` (`file_ID`, `file_name`, `file_uploadby`, `file_docu_type`, `file_rel_type`, `file_filepath`, `file_add_date`, `file_active_flag`) VALUES
 (1, 'grades', 'guidance', 1, 'Printable', 'Grades.docx', '2018-12-27 23:03:55', 'Active'),
-(2, 'DL of Cristian', 'guidance', 1, 'Confidential', 'Drivers license.docx', '2018-12-27 23:07:44', 'Active'),
-(3, 'BSIT OJT Recom Letter', 'Cristian_Balatbat', 2, 'Printable', 'BSIT recom-letter (latest 2018).docx', '2019-01-18 10:39:42', 'Active');
+(2, 'DL of Cristian', 'guidance', 1, 'Confidential', 'Drivers license.docx', '2018-12-27 23:07:44', 'Active');
 
 -- --------------------------------------------------------
 
@@ -369,8 +367,9 @@ CREATE TABLE `t_stud_batch_rec` (
 INSERT INTO `t_stud_batch_rec` (`batch_ID`, `batch_student`, `batch_year`, `batch_stud_stat`, `batch_add_date`, `batch_mod_date`, `batch_active_flag`) VALUES
 (1, '2015-00193-CM-0', '2018 - 2019', 'Regular', '2018-12-31 14:23:51', '2018-12-31 14:23:51', 'Show'),
 (2, '2015-00111-CM-0', '2018 - 2019', 'Regular', '2018-12-31 15:21:23', '2018-12-31 15:21:23', 'Show'),
-(3, '2015-00075-CM-0', '2019 - 2020', 'Regular', '2019-01-02 18:48:34', '2019-01-02 18:48:34', 'Show'),
-(4, '2015-00410-CM-0', '2019 - 2020', 'Regular', '2019-01-07 07:40:04', '2019-01-07 07:40:04', 'Show');
+(3, '2015-00075-CM-0', '2018 - 2019', 'Regular', '2019-01-02 18:48:34', '2019-01-02 18:48:34', 'Show'),
+(4, '2015-00410-CM-0', '2018 - 2019', 'Regular', '2019-01-07 07:40:04', '2019-01-07 07:40:04', 'Show'),
+(5, '2015-00046-CM-0', '2018 - 2019', 'Regular', '2019-01-09 17:27:36', '2019-01-09 17:27:36', 'Show');
 
 -- --------------------------------------------------------
 
@@ -396,15 +395,16 @@ CREATE TABLE `t_stud_educational_bg_details` (
 --
 
 INSERT INTO `t_stud_educational_bg_details` (`educ_bg_ID`, `educ_bg_student`, `educ_bg_level`, `educ_bg_school_name`, `educ_bg_school_address`, `educ_bg_school_type`, `educ_bg_year_graduated`, `educ_bg_add_date`, `educ_bg_mod_date`, `educ_bg_active_flag`) VALUES
-(1, '2015-00193-CM-0', 'Primary', 'Sto. Nino Children Montessori Center', 'Durian St. Palmera Homes, QC', 'Private', 2011, '2018-12-31 14:23:50', '2018-12-31 14:23:50', 'Show'),
-(2, '2015-00193-CM-0', 'Secondary', 'Divine Grace School', 'Maligaya Park Subdm QC', 'Private', 2015, '2018-12-31 14:23:51', '2018-12-31 14:23:51', 'Show'),
-(3, '2015-00193-CM-0', 'Tertiary', 'Polytechnic University of the Philippines QC Branch', 'Don Fabian St. Commonwealth, QC', 'Public', 0000, '2018-12-31 14:23:51', '2018-12-31 14:23:51', 'Show'),
+(1, '2015-00193-CM-0', 'Primary', 'Sto. Nino Children Montessori Center', 'Durian St. Palmera Homes, QC', 'Private', 2011, '2018-12-31 14:23:50', '2019-01-09 14:42:01', 'Show'),
+(2, '2015-00193-CM-0', 'Secondary', 'Divine Grace School', 'Maligaya Park Subdivision QC', 'Private', 2015, '2018-12-31 14:23:51', '2019-01-09 14:41:29', 'Show'),
+(3, '2015-00193-CM-0', 'Tertiary', 'Polytechnic University of the Philippines QC Branch', 'Don Fabian St. Commonwealth, QC', 'Public', 2019, '2018-12-31 14:23:51', '2018-12-31 14:23:51', 'Show'),
 (4, '2015-00111-CM-0', 'Primary', 'Japan School', 'Japan', 'Public', 2011, '2018-12-31 15:21:23', '2018-12-31 15:21:23', 'Show'),
 (5, '2015-00111-CM-0', 'Secondary', 'Philippine University of the Philippines', 'Philippines', 'Public', 2015, '2018-12-31 15:21:23', '2018-12-31 15:21:23', 'Show'),
 (6, '2015-00111-CM-0', 'Tertiary', 'PUPQC', 'Don fabian, Commonwealth QC', 'Public', 0000, '2018-12-31 15:21:23', '2018-12-31 15:21:23', 'Show'),
 (7, '2015-00075-CM-0', 'Tertiary', 'Polytechnic University of the Philippines QC', 'Don Fabian Commonwealth QC', 'Public', 2019, '2019-01-04 05:58:46', '2019-01-04 05:58:46', 'Show'),
 (8, '2015-00075-CM-0', 'Secondary', 'School of Hentai', 'Japan', 'Private', 2015, '2019-01-04 06:05:42', '2019-01-04 06:05:42', 'Show'),
-(9, '2015-00410-CM-0', 'Tertiary', 'Polytechnic University of the Philippines QC', 'Don Fabian Commonwealth QC', 'Public', 2019, '2019-01-07 07:46:42', '2019-01-07 07:46:42', 'Show');
+(9, '2015-00410-CM-0', 'Tertiary', 'Polytechnic University of the Philippines QC', 'Don Fabian Commonwealth QC', 'Public', 2019, '2019-01-07 07:46:42', '2019-01-07 07:46:42', 'Show'),
+(10, '2015-00111-CM-0', 'Secondary', 'Areneoh Deh Mhanilah', 'Katips QC', 'Private', 2014, '2019-01-09 11:29:42', '2019-01-09 11:29:42', 'Show');
 
 -- --------------------------------------------------------
 
@@ -427,7 +427,7 @@ CREATE TABLE `t_stud_education_rec` (
 --
 
 INSERT INTO `t_stud_education_rec` (`educ_ID`, `educ_student`, `educ_nature_schooling`, `educ_interrupt_reason`, `educ_add_date`, `educ_mod_date`, `educ_active_flag`) VALUES
-(1, '2015-00193-CM-0', 'Continuous', 'none', '2018-12-31 14:23:50', '2018-12-31 14:23:50', 'Show'),
+(1, '2015-00193-CM-0', 'Continuous', 'none', '2018-12-31 14:23:50', '2019-01-09 14:55:12', 'Show'),
 (2, '2015-00111-CM-0', 'Continuous', 'none', '2018-12-31 15:21:23', '2018-12-31 15:21:23', 'Show'),
 (10, '2015-00075-CM-0', 'Continuous', 'n/a', '2019-01-04 05:58:45', '2019-01-04 05:58:45', 'Show'),
 (11, '2015-00410-CM-0', 'Continuous', 'n/a', '2019-01-07 07:46:42', '2019-01-07 07:46:42', 'Show');
@@ -466,24 +466,16 @@ INSERT INTO `t_stud_family_bg_rec` (`famInf_ID`, `famInf_student`, `famInf_type`
 (3, '2015-00193-CM-0', 'Mother', 'Balatbat', 'Oro', 'Christina', 43, 'Alive', 'College Undergraduate Degree', 'Office Clerk', 'n/a', 'n/a', '2019-01-03 16:53:55', '2019-01-03 16:53:55', 'Show'),
 (4, '2015-00075-CM-0', 'Mother', 'Agnir', 'Elba', 'Lilibeth', 44, 'Alive', 'College Undergraduate Degree', 'HouseWife', 'n/a', 'n/a', '2019-01-03 16:55:25', '2019-01-03 16:55:25', 'Show'),
 (5, '2015-00075-CM-0', 'Brother', 'Agnir', 'Elba', 'Johnrich', 20, 'Alive', 'Highschool', 'Office Clerk', 'n/a', 'n/a', '2019-01-03 16:55:25', '2019-01-03 16:55:25', 'Show'),
-(6, '2015-00410-CM-0', 'Father', 'Alejandria', 'N', 'Mike', 45, 'Alive', 'College Undergraduate Degree', 'Therapist', 'n/a', 'n/a', '2019-01-07 07:46:14', '2019-01-07 07:46:14', 'Show');
+(6, '2015-00410-CM-0', 'Father', 'Alejandria', 'N', 'Mike', 45, 'Alive', 'College Undergraduate Degree', 'Therapist', 'n/a', 'n/a', '2019-01-07 07:46:14', '2019-01-09 11:01:00', 'Show'),
+(7, '2015-00111-CM-0', 'Mother', 'Kuriyama', 'None', 'Mash', 45, 'Alive', 'College Undergraduate Degree', 'Doctor', 'n/a', 'n/a', '2019-01-09 11:11:01', '2019-01-09 11:11:58', 'Show');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `t_stud_honors_awards`
 --
-
-CREATE TABLE `t_stud_honors_awards` (
-  `hon_ID` int(10) NOT NULL,
-  `hon_student` varchar(50) NOT NULL,
-  `hon_school` int(10) NOT NULL,
-  `hon_received_type` varchar(50) NOT NULL,
-  `hon_description` varchar(255) NOT NULL,
-  `hon_add_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `hon_mod_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `hon_active_flag` varchar(20) NOT NULL DEFAULT 'Show'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- Error reading structure for table gcms_v2.t_stud_honors_awards: #1932 - Table 'gcms_v2.t_stud_honors_awards' doesn't exist in engine
+-- Error reading data for table gcms_v2.t_stud_honors_awards: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `gcms_v2`.`t_stud_honors_awards`' at line 1
 
 -- --------------------------------------------------------
 
@@ -563,7 +555,8 @@ INSERT INTO `t_stud_physical_rec` (`phy_rec_ID`, `phy_rec_student`, `phy_rec_vis
 (4, '2015-00410-CM-0', '20/20', 'Good', 'Good', 'Good', '2019-01-07 07:45:29', '2019-01-07 07:45:29', 'Show'),
 (5, '2015-00193-CM-0', '18/18', 'not good', 'not good', 'not so good', '2019-01-08 14:28:52', '2019-01-08 14:28:52', 'Show'),
 (6, '2015-00111-CM-0', '18/20', 'not good', 'not good', 'not good', '2019-01-08 14:30:27', '2019-01-08 14:30:27', 'Show'),
-(9, '2015-00111-CM-0', '15/15', 'very good', 'very good', 'good', '2019-01-08 14:35:17', '2019-01-08 14:35:17', 'Show');
+(9, '2015-00111-CM-0', '15/15', 'very good', 'very good', 'good', '2019-01-08 14:35:17', '2019-01-08 14:35:17', 'Show'),
+(10, '2015-00410-CM-0', '19/19', 'Not good', 'not good', 'not good', '2019-01-09 10:40:21', '2019-01-09 10:40:21', 'Show');
 
 -- --------------------------------------------------------
 
@@ -601,8 +594,9 @@ CREATE TABLE `t_stud_profile` (
 INSERT INTO `t_stud_profile` (`stud_ID`, `stud_number`, `stud_lastname`, `stud_middlename`, `stud_firstname`, `stud_course`, `stud_yearlevel`, `stud_section`, `stud_gender`, `stud_birthdate`, `stud_birthplace`, `stud_homeadd`, `stud_provadd`, `stud_telephone_no`, `stud_mobile_no`, `stud_email`, `stud_status`, `stud_add_date`, `stud_mod_date`, `stud_active_flag`) VALUES
 (1, '2015-00193-CM-0', 'Balatbat', 'Oro', 'Cristian', 1, 4, 1, 'Male', '1999-10-26', 'Angeles City, Pampanga', 'Palmera Homes, Quezon City', 'Porac, Pampanga', '8-7000', '2147483647', 'cristianbalatbat@yahoo.com', 'Regular', '2018-12-31 14:23:46', '2019-01-08 12:46:33', 'Active'),
 (2, '2015-00111-CM-0', 'Kuriyama', 'Mash', 'Mirai', 1, 1, 1, 'Female', '2000-11-05', 'Manila', 'Manila', 'Pampanga', '8888', '2147483647', 'miraikuriyama@gmail.com', 'Regular', '2018-12-31 15:21:22', '2018-12-31 15:21:22', 'Active'),
-(3, '2015-00075-CM-0', 'Agnir', 'Elba', 'Lowell Dave', 1, 4, 1, 'Male', '1999-04-23', 'Rizal', 'San Mateo, Rizal', 'Rizal', '8-7001', '587653212', 'lowellagnir@yahoo.com', 'Irregular', '2019-01-02 18:47:49', '2019-01-17 17:09:10', 'Active'),
-(4, '2015-00410-CM-0', 'Alejandria', 'C.', 'Maria Michaela', 1, 4, 1, 'Female', '1998-06-17', 'Manila', 'Lamesa Heights, Lagro Quezon City', 'Wala', 'none', '209598580', 'mikaalej@gmail.com', 'Irregular', '2019-01-07 07:40:04', '2019-01-17 17:09:21', 'Active');
+(3, '2015-00075-CM-0', 'Agnir', 'Elba', 'Lowell Dave', 1, 4, 1, 'Male', '1999-04-23', 'Rizal', 'San Mateo, Rizal', 'Rizal', '8-7001', '587653212', 'lowellagnir@yahoo.com', 'Regular', '2019-01-02 18:47:49', '2019-01-02 18:47:49', 'Active'),
+(4, '2015-00410-CM-0', 'Alejandria', 'C.', 'Maria Michaela', 1, 4, 1, 'Female', '1998-06-17', 'Manila', 'Lamesa Heights, Lagro Quezon City', 'Wala', 'none', '09876543211', 'mikaalej@gmail.com', 'Regular', '2019-01-07 07:40:04', '2019-01-09 10:39:22', 'Active'),
+(5, '2015-00046-CM-0', 'Alvior', 'N.', 'Keith Eyvan', 1, 4, 1, 'Male', '1999-03-26', 'QC', 'Blk. 4 Lot3 DoÃ±a Nicassa Puyat Subd. Commonwealth Quezon City', 'QC', 'none', '9108580918', 'thenewarkhamjoker@outlook.com', 'Regular', '2019-01-09 17:27:36', '2019-01-09 17:27:36', 'Active');
 
 -- --------------------------------------------------------
 
@@ -659,11 +653,8 @@ INSERT INTO `t_stud_visitation` (`vs_ID`, `vs_code`, `vs_stud_no`, `vs_app_type`
 (3, 'VS-3', '2015-00193-CM-0', 1, 1, 'Nagkasala po kasi ako', '2019-01-02', '17:10:22'),
 (4, 'VS-4', '2015-00075-CM-0', 2, 1, 'la lang ulit', '2019-01-03', '12:53:21'),
 (5, 'VS-5', '2015-00075-CM-0', 2, 1, 'lalang', '2019-01-03', '15:19:58'),
-(6, 'VS-6', '2015-00075-CM-0', 1, 1, 'lalang', '2019-01-17', '18:59:40'),
-(7, 'VS-7', '2015-00193-CM-0', 2, 1, 'lalang', '2019-01-18', '10:21:39'),
-(8, 'VS-8', '2015-00111-CM-0', 1, 2, 'lalang', '2019-01-18', '10:22:41'),
-(9, 'VS-9', '2015-00111-CM-0', 1, 2, 'lalang', '2019-01-18', '10:23:32'),
-(10, 'VS-10', '2015-00410-CM-0', 1, 1, 'la lang ulit', '2019-01-18', '10:24:14');
+(6, 'VS-6', '2015-00046-CM-0', 1, 1, 'none', '2019-01-09', '18:03:49'),
+(7, 'VS-7', '2015-00075-CM-0', 1, 1, 'Nagkasala po kasi ako', '2019-04-03', '04:35:59');
 
 -- --------------------------------------------------------
 
@@ -721,18 +712,22 @@ INSERT INTO `t_users_log` (`log_No`, `log_userID`, `log_usertype`, `log_datestam
 (37, 2, 2, '2019-01-07', '09:31:28'),
 (38, 2, 2, '2019-01-07', '15:56:42'),
 (39, 2, 2, '2019-01-08', '10:00:28'),
-(40, 2, 2, '2019-01-16', '20:04:32'),
-(41, 2, 2, '2019-01-17', '10:24:03'),
-(42, 1, 1, '2019-01-17', '17:12:31'),
-(43, 2, 2, '2019-01-17', '17:13:09'),
-(44, 3, 3, '2019-01-17', '18:41:46'),
-(45, 3, 3, '2019-01-17', '18:42:49'),
-(46, 2, 2, '2019-01-18', '10:12:22'),
-(47, 3, 3, '2019-01-18', '10:15:30'),
-(48, 1, 1, '2019-01-18', '10:39:00'),
-(49, 3, 3, '2019-01-18', '11:09:58'),
-(50, 2, 2, '2019-01-18', '11:24:56'),
-(51, 1, 1, '2019-01-18', '11:25:14');
+(40, 2, 2, '2019-01-09', '10:36:47'),
+(41, 1, 1, '2019-01-09', '17:48:43'),
+(42, 2, 2, '2019-01-09', '18:03:59'),
+(43, 2, 2, '2019-02-01', '06:54:30'),
+(44, 1, 1, '2019-02-10', '15:43:57'),
+(45, 2, 2, '2019-03-01', '06:07:11'),
+(46, 2, 2, '2019-04-03', '04:32:45'),
+(47, 2, 2, '2019-04-03', '04:32:52'),
+(48, 2, 2, '2019-04-03', '04:32:56'),
+(49, 2, 2, '2019-04-03', '04:33:02'),
+(50, 2, 2, '2019-04-03', '04:33:13'),
+(51, 1, 1, '2019-04-03', '04:33:18'),
+(52, 1, 1, '2019-04-03', '04:34:58'),
+(53, 2, 2, '2019-04-03', '04:36:34'),
+(54, 1, 1, '2019-04-03', '04:38:57'),
+(55, 2, 2, '2019-04-03', '04:39:12');
 
 --
 -- Indexes for dumped tables
@@ -855,14 +850,6 @@ ALTER TABLE `t_stud_family_bg_rec`
   ADD KEY `FK_stud_famInf_rec` (`famInf_student`);
 
 --
--- Indexes for table `t_stud_honors_awards`
---
-ALTER TABLE `t_stud_honors_awards`
-  ADD PRIMARY KEY (`hon_ID`),
-  ADD KEY `FK_stud_hon_rec` (`hon_student`),
-  ADD KEY `FK_stud_school` (`hon_school`);
-
---
 -- Indexes for table `t_stud_personal_rec`
 --
 ALTER TABLE `t_stud_personal_rec`
@@ -939,7 +926,7 @@ ALTER TABLE `r_courses`
 -- AUTO_INCREMENT for table `r_document_type`
 --
 ALTER TABLE `r_document_type`
-  MODIFY `dt_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `dt_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `r_semester`
@@ -987,19 +974,19 @@ ALTER TABLE `t_counseling_individual`
 -- AUTO_INCREMENT for table `t_files_upload`
 --
 ALTER TABLE `t_files_upload`
-  MODIFY `file_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `file_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `t_stud_batch_rec`
 --
 ALTER TABLE `t_stud_batch_rec`
-  MODIFY `batch_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `batch_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `t_stud_educational_bg_details`
 --
 ALTER TABLE `t_stud_educational_bg_details`
-  MODIFY `educ_bg_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `educ_bg_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `t_stud_education_rec`
@@ -1011,13 +998,7 @@ ALTER TABLE `t_stud_education_rec`
 -- AUTO_INCREMENT for table `t_stud_family_bg_rec`
 --
 ALTER TABLE `t_stud_family_bg_rec`
-  MODIFY `famInf_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `t_stud_honors_awards`
---
-ALTER TABLE `t_stud_honors_awards`
-  MODIFY `hon_ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `famInf_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `t_stud_personal_rec`
@@ -1029,13 +1010,13 @@ ALTER TABLE `t_stud_personal_rec`
 -- AUTO_INCREMENT for table `t_stud_physical_rec`
 --
 ALTER TABLE `t_stud_physical_rec`
-  MODIFY `phy_rec_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `phy_rec_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `t_stud_profile`
 --
 ALTER TABLE `t_stud_profile`
-  MODIFY `stud_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `stud_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `t_stud_psych_rec`
@@ -1047,13 +1028,13 @@ ALTER TABLE `t_stud_psych_rec`
 -- AUTO_INCREMENT for table `t_stud_visitation`
 --
 ALTER TABLE `t_stud_visitation`
-  MODIFY `vs_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `vs_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `t_users_log`
 --
 ALTER TABLE `t_users_log`
-  MODIFY `log_No` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `log_No` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Constraints for dumped tables
@@ -1117,13 +1098,6 @@ ALTER TABLE `t_stud_education_rec`
 --
 ALTER TABLE `t_stud_family_bg_rec`
   ADD CONSTRAINT `FK_stud_famInf_rec` FOREIGN KEY (`famInf_student`) REFERENCES `t_stud_profile` (`stud_number`);
-
---
--- Constraints for table `t_stud_honors_awards`
---
-ALTER TABLE `t_stud_honors_awards`
-  ADD CONSTRAINT `FK_stud_hon_rec` FOREIGN KEY (`hon_student`) REFERENCES `t_stud_profile` (`stud_number`),
-  ADD CONSTRAINT `FK_stud_school` FOREIGN KEY (`hon_school`) REFERENCES `t_stud_educational_bg_details` (`educ_bg_ID`);
 
 --
 -- Constraints for table `t_stud_personal_rec`
