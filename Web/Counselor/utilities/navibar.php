@@ -55,7 +55,7 @@
                         <span>Visitation Logs</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="#"> <i class="fa  fa-angle-double-right"></i>Add Log</a></li>
+                        <li><a href="add_visitation.php"> <i class="fa  fa-angle-double-right"></i>Add Log</a></li>
                         <li><a href="view_visitation.php"> <i class="fa  fa-angle-double-right"></i>View Logs</a></li>
                     </ul>
                 </li>
