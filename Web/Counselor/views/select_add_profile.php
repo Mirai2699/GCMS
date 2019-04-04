@@ -57,7 +57,7 @@
                     ****
                     ***
                     **
-                -->
+                --> 
                 <div aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="excelimport" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -71,7 +71,7 @@
                                 <div class="modal-body" style="height:140px;">
                                     <div class="col-md-12">
                                         <form method="post" action="..\functionalities\import_excel_1.php" enctype="multipart/form-data">
-                                            <input type="file" name="excel_upload" class="form-control">
+                                            <input type="file" name="excelfile" class="form-control">
                                             <br>
                                             <div class="col-md-12">
                                                 <button class="btn btn-lg btn-success">
