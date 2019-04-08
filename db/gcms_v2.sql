@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2019 at 12:00 PM
+-- Generation Time: Apr 08, 2019 at 05:09 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -777,7 +777,11 @@ INSERT INTO `t_users_log` (`log_No`, `log_userID`, `log_usertype`, `log_datestam
 (70, 2, 2, '2019-04-03', '14:25:23'),
 (71, 1, 1, '2019-04-03', '16:11:23'),
 (72, 2, 2, '2019-04-03', '16:11:56'),
-(73, 2, 2, '2019-04-04', '15:48:35');
+(73, 2, 2, '2019-04-04', '15:48:35'),
+(74, 2, 2, '2019-04-08', '09:37:48'),
+(75, 2, 2, '2019-04-08', '09:46:37'),
+(76, 2, 2, '2019-04-08', '09:51:56'),
+(77, 2, 2, '2019-04-08', '10:47:37');
 
 --
 -- Indexes for dumped tables
@@ -1098,7 +1102,7 @@ ALTER TABLE `t_stud_visitation`
 -- AUTO_INCREMENT for table `t_users_log`
 --
 ALTER TABLE `t_users_log`
-  MODIFY `log_No` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `log_No` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- Constraints for dumped tables

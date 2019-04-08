@@ -588,6 +588,19 @@
                             <p style="text-align: center; font-size: 18px">Before proceeding to the submission of this student's record, <br>
                                please review back the details of your form entries.
                             </p>
+                            <br>
+                            <p style="text-align: center; font-size: 18px; color: black">By clicking the submission button, it means that you agree to the terms, conditions and provisionaries of the <br>National Privacy Commission in regards to the compliance to the Data Privacy Act of 2012,<br> in terms of collecting personal and senstitive information.
+                            </p>
+                            <br>
+                            <p style="text-align: center; font-size: 18px; color: black; font-weight: bold">
+                                For more details, click the button below <i class="fa fa-arrow-down"></i>
+                                <br><br>
+                                <a class="btn btn-info" href="#view_npc" data-toggle="modal" style="background-color: #00264d">
+                                    <i class="fa fa-external-link"></i>&nbsp;
+                                    View DPA Statement in Data Collection
+                                </a>
+                            </p>
+                            <?php include("get_view_privacy_statement.php");?>
                         </div>
                     </div>
                     <!--BUTTONS-->

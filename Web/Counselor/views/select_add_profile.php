@@ -68,12 +68,25 @@
                                         <i class="fa fa-copy" style="font-size:35px"></i>&nbsp;&nbsp;Excel Import
                                     </h4>
                                 </div>  
-                                <div class="modal-body" style="height:140px;">
+                                <div class="modal-body" style="height:330px;">
                                     <div class="col-md-12">
                                         <form method="post" action="..\functionalities\import_excel_1.php" enctype="multipart/form-data">
                                             <input type="file" name="excelfile" class="form-control">
                                             <br>
+                                            <p style="text-align: center; font-size: 15px; color: black">By clicking the import button, it means that you agree to the terms, conditions and provisionaries of the National Privacy Commission in regards to the compliance to the Data Privacy Act of 2012, in terms of collecting personal and senstitive information.
+                                            </p>
+                                            <br>
+                                            <p style="text-align: center; font-size: 15px; color: black; font-weight: bold">
+                                                For more details, click the button below <i class="fa fa-arrow-down"></i>
+                                                <br><br>
+                                                <a class="btn btn-info" href="#view_npc" data-toggle="modal" style="background-color: #00264d">
+                                                    <i class="fa fa-external-link"></i>&nbsp;
+                                                    View DPA Statement in Data Collection
+                                                </a>
+                                            </p>
+                                            
                                             <div class="col-md-12">
+                                                <div class="row" style="padding: 1px; background-color: #262626; margin-bottom: 10px"></div>
                                                 <button class="btn btn-lg btn-success">
                                                     <i class="fa fa-upload" style="font-size:20px"></i>&nbsp;
                                                     Import
@@ -84,6 +97,7 @@
                                                     Cancel
                                                 </a>
                                             </div>
+                                            <div class="row" style="padding: 1px"></div>
                                         </form>
                                     </div>
                                 </div>
@@ -92,6 +106,7 @@
                     </div>
                 </div>
                 <!--End Excel Import-->
+                <?php include("get_view_privacy_statement.php");?>
             </center>
             <!--END CUSTOM CONTENT-->
         </section>

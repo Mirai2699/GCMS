@@ -22,8 +22,7 @@
             </div>
             <!--END BREADCRUMBS-->
             <!--START CUSTOM CONTENT-->
-            
-
+            <?php include("get_view_page_maintenance.php");?>
             <!--END CUSTOM CONTENT-->
         </section>
     </section>
